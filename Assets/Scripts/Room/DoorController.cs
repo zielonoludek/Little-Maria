@@ -5,12 +5,13 @@ using UnityEngine;
 
 public class DoorController : MonoBehaviour
 {
-    [SerializeField] private Transform playerTransportPoint;
+    private Transform playerTransportPoint;
     private bool _isUnlocked;
 
     private void Start()
     {
         _isUnlocked = true;
+        playerTransportPoint = transform.GetChild(0);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
