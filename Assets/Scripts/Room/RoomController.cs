@@ -13,6 +13,11 @@ public class RoomController : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             cameraController.SetFollowTarget(transform);
+            GameManager.instance.currentRoom = transform.gameObject;
         }
+    }
+    public void Reset()
+    {
+        
     }
 }
