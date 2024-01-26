@@ -4,14 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public static PlayerController Instance { get; private set; }
-
-    [SerializeField] private float moveSpeed;
-
-    private void Awake()
-    {
-        Instance = this;
-    }
+    [SerializeField] private float moveSpeed = 5;
 
     private void FixedUpdate()
     {
@@ -20,10 +13,7 @@ public class PlayerController : MonoBehaviour
 
     private void HandleMovement()
     {
-        Vector2 inputVector = GameInput.Instance.GetMovementVectorNormalized();
-        Vector3 moveDir = new Vector3(inputVector.x, inputVector.y);
-
-        float moveDistance = moveSpeed * Time.deltaTime;
-        transform.position += moveDir * moveDistance;
+        Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0);
+        transform.position += movement * 5 * Time.deltaTime;
     }
 }

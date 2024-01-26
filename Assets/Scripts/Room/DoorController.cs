@@ -20,7 +20,7 @@ public class DoorController : MonoBehaviour
             if (_isUnlocked)
             {
                 Debug.Log("Doors are open");
-                PlayerController.Instance.transform.position = playerTransportPoint.position;
+                
             }
             else
             {
