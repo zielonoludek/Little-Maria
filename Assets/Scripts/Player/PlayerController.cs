@@ -7,9 +7,6 @@ public class PlayerController : MonoBehaviour
     public static PlayerController Instance { get; private set; }
 
     [SerializeField] private float moveSpeed;
-    
-    private bool _isPlayerChangingRooms;
-    private int _doorNumber;
 
     private void Awake()
     {
@@ -18,10 +15,7 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!_isPlayerChangingRooms)
-        {
-            HandleMovement();
-        }
+        HandleMovement();
     }
 
     private void HandleMovement()
