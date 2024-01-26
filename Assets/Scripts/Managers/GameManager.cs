@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     private Player player;
+    public GameObject currentRoom;
     public void Initialize()
     {
         if (instance == null)
