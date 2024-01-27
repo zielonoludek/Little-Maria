@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8d892714-3257-4935-9e07-26137b64ec86" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Michal.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Michal.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
-    </list>
+    <list default="true" id="8d892714-3257-4935-9e07-26137b64ec86" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -97,7 +94,7 @@
       <workItem from="1706307487281" duration="228000" />
       <workItem from="1706340243743" duration="305000" />
       <workItem from="1706341467046" duration="4952000" />
-      <workItem from="1706346948610" duration="5334000" />
+      <workItem from="1706346948610" duration="5432000" />
     </task>
     <servers />
   </component>
