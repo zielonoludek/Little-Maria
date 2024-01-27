@@ -19,7 +19,7 @@ public class DoorController : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             other.transform.position = playerTransportPoint.position;
-            gameManager.NextRoom();
+            gameManager.AddRoom();
         }
     }
 }

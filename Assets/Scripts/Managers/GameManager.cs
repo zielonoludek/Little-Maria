@@ -6,11 +6,15 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     private Player player;
-    private int roomNumer = 0;
+    private int currentRoom = 0;
+    [SerializeField]private int numberOfRooms;
+
     
     private void Awake()
     {
         player = FindObjectOfType<Player>();
+        RoomController[] roomList = FindObjectsOfType<RoomController>();
+        numberOfRooms = roomList.Length;
     }
     private void Update()
     {
@@ -20,14 +24,19 @@ public class GameManager : MonoBehaviour
     public void killPlayer()
     {
         player.Kill();
+        ResetRoom();
     }
     private void ResetRoom()
     {
-        SceneManager.UnloadScene(roomNumer + 1);
-        SceneManager.LoadScene(roomNumer + 1, LoadSceneMode.Additive);
-        killPlayer();
+        SceneManager.UnloadScene(currentRoom + 1);
+        SceneManager.LoadScene(currentRoom + 1, LoadSceneMode.Additive);
     }
-    public void NextRoom() {
-        roomNumer++; 
+    public void AddRoom() {
+        currentRoom++;
+        LoadNextRoom();
+    }
+    private void LoadNextRoom()
+    {
+        SceneManager.LoadScene(currentRoom + 1, LoadSceneMode.Additive);
     }
 }
