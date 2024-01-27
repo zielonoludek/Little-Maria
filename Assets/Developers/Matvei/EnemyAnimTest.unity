@@ -227,22 +227,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
-    - target: {fileID: 8218416428669870528, guid: 0a64f4d7df2e299409af6a632a8d0b06, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 90e9bcf4b28fa514ca2185e6e790b51b, type: 3}
-    - target: {fileID: 8218416428669870528, guid: 0a64f4d7df2e299409af6a632a8d0b06, type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8218416428669870528, guid: 0a64f4d7df2e299409af6a632a8d0b06, type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8218416428669870528, guid: 0a64f4d7df2e299409af6a632a8d0b06, type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8459026206180412125, guid: 0a64f4d7df2e299409af6a632a8d0b06, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.2388394
@@ -286,37 +270,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2828836986731594672, guid: 0a64f4d7df2e299409af6a632a8d0b06, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1252891143}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a64f4d7df2e299409af6a632a8d0b06, type: 3}
---- !u!1 &1252891142 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2828836986731594672, guid: 0a64f4d7df2e299409af6a632a8d0b06, type: 3}
-  m_PrefabInstance: {fileID: 1252891141}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &1252891143
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1252891142}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 317c79f97e67b7c499669633cfad4d1b, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1367617284
 GameObject:
   m_ObjectHideFlags: 0
@@ -372,7 +327,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 20.48, y: 20.48}
+    oldSize: {x: 1, y: 1}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -463,7 +418,7 @@ Transform:
   m_GameObject: {fileID: 1367617284}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -66.58, y: -24.19, z: 0}
+  m_LocalPosition: {x: -35.34, y: -13.65, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

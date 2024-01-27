@@ -11,7 +11,11 @@ GameObject:
   - component: {fileID: 8512732086729527747}
   - component: {fileID: 4414011854779065712}
   - component: {fileID: 5932068164658702416}
+<<<<<<< HEAD
   - component: {fileID: 977734775704576368}
+=======
+  - component: {fileID: 1682282062389089719}
+>>>>>>> 24d8c180f9d340953231df8eff24d8e055c4edcd
   m_Layer: 0
   m_Name: SFXPlayer
   m_TagString: Untagged
@@ -107,7 +111,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+<<<<<<< HEAD
 --- !u!114 &977734775704576368
+=======
+--- !u!114 &1682282062389089719
+>>>>>>> 24d8c180f9d340953231df8eff24d8e055c4edcd
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
