@@ -15,6 +15,7 @@ public class EnemyController : MonoBehaviour
     private State _currentState;
 
     [SerializeField] private FieldOfView fov;
+    private PlayerController player;
 
     [SerializeField] private Transform[] patrolPoints;
     [SerializeField] private float patrolSpeed = 2f;
@@ -27,6 +28,7 @@ public class EnemyController : MonoBehaviour
     private void Awake()
     {
         _currentState = State.Patrol;
+        player = FindObjectOfType<PlayerController>();   
     }
 
     private void Update()
@@ -84,6 +86,6 @@ public class EnemyController : MonoBehaviour
 
     private void AttackState()
     {
-        Debug.Log("Player killed");
+        player.Kill();
     }
 }
