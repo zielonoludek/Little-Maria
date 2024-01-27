@@ -3,8 +3,8 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     private float moveSpeed = 5;
-    private int gasAmout = 6;
-    private float ignoreDuration = 0.4f;
+    [SerializeField] private int gasAmout = 0;
+    private float ignoreDuration = 1f;
     public bool shooted = false;
     private Vector3 spawnPoint;
 
@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             Instantiate(gas, transform.position, transform.rotation);
-            gasAmout++;
+            gasAmout--;
             shooted = true;
             Invoke("StopIgnoringCollision", ignoreDuration);
         }

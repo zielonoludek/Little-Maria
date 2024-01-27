@@ -8,6 +8,7 @@ public class Gas : MonoBehaviour
     private Rigidbody2D rb;
     private PlayerController player;
     private float speed = 200;
+    [SerializeField] bool isStatic = false;
 
     public void Awake()
     {
@@ -19,7 +20,7 @@ public class Gas : MonoBehaviour
     {
         Vector3 target = camera.ScreenToWorldPoint(Input.mousePosition);
         Vector3 direction = (target - transform.position).normalized;
-        rb.AddForce(direction * speed);
+        if(!isStatic) rb.AddForce(direction * speed);
     }
     private void OnTriggerExit2D(Collider2D collider)
     {

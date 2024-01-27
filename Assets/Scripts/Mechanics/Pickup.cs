@@ -12,11 +12,11 @@ public class Pickup : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
+        if (other.gameObject.layer == 7)
         {
-            UIManager.Instance.UpdateItemUIPanel(pickupSprite);
             player.NewGas();
-            Destroy(gameObject);
+            UIManager.Instance.UpdateItemUIPanel(pickupSprite);
+            Destroy(transform.gameObject);
         }
     }
 }
