@@ -5,19 +5,15 @@ using UnityEngine;
 
 public class RoomController : MonoBehaviour
 {
-    [SerializeField] private CameraController cameraController;
-    private bool _isPlayerInRoom;
+    private CameraController cameraController;
 
+
+    private void Start()
+    {
+        cameraController = FindObjectOfType<CameraController>();
+    }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            cameraController.SetFollowTarget(transform);
-            GameManager.instance.currentRoom = transform.gameObject;
-        }
-    }
-    public void Reset()
-    {
-        
+        if (other.gameObject.CompareTag("Player")) cameraController.SetFollowTarget(transform);
     }
 }
