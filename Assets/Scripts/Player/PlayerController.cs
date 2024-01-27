@@ -47,4 +47,8 @@ public class PlayerController : MonoBehaviour
             Destroy(collision.gameObject);
         }
     }
+    public void NewGas()
+    {
+        gasAmout = 6;
+    }
 }
