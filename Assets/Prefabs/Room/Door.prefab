@@ -201,6 +201,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7280199740193171418}
+  - {fileID: 6222227386890399353}
   - {fileID: 4406926521150661891}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -440,7 +441,7 @@ GameObject:
   - component: {fileID: 6222227386890399353}
   - component: {fileID: 3389596988482723254}
   m_Layer: 0
-  m_Name: Door_Spr (1)
+  m_Name: Entrance
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -454,12 +455,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5202384817635729551}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0.93320656, y: 1.8646034, z: 0.17706147}
-  m_LocalScale: {x: 1.1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.5700001, y: -0.010000521, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 4406926521150661891}
+  m_Father: {fileID: 6874816286853382383}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3389596988482723254
 SpriteRenderer:
@@ -542,7 +543,6 @@ Transform:
   m_LocalScale: {x: 0.99999976, y: 0.9090907, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 6222227386890399353}
   - {fileID: 5987707008724374452}
   - {fileID: 8326616339191489471}
   - {fileID: 8551933883285930891}
