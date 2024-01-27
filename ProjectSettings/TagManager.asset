@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - spawnPoint
+  - Gas
+  - Room
+  - Movable
   layers:
   - Default
   - TransparentFX
