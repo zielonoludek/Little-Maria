@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.K)) killPlayer();
         if (Input.GetKeyDown(KeyCode.R)) ResetRoom();
+        if (Input.GetKeyDown(KeyCode.Escape)) UIManager.Instance.TogglePauseMenu();
     }
     public void killPlayer()
     {
