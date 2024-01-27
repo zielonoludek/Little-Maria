@@ -3,10 +3,17 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     private float moveSpeed = 5;
-    private void FixedUpdate()
+    private int gasAmout = 6;
+    private float ignoreDuration = 0.4f;
+    public bool shooted = false;
+    private Vector3 spawnPoint;
+
+    [SerializeField] private GameObject gas;
+
+    private void Update()
     {
         HandleMovement();
-        UseGas();
+        if(gasAmout > 0) UseGas();
     }
     private void HandleMovement()
     {
@@ -15,6 +22,29 @@ public class PlayerController : MonoBehaviour
     }
     private void UseGas()
     {
-        
+        if (Input.GetMouseButtonDown(0))
+        {
+            Instantiate(gas, transform.position, transform.rotation);
+            gasAmout++;
+            shooted = true;
+            Invoke("StopIgnoringCollision", ignoreDuration);
+        }
+    }
+    void StopIgnoringCollision()
+    {
+        shooted = false;
+    }
+    public void Kill()
+    {
+        if (!shooted) transform.position = spawnPoint;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Respawn"))
+        {
+            spawnPoint = collision.transform.position;
+            Destroy(collision.gameObject);
+        }
     }
 }

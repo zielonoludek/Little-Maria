@@ -5,14 +5,14 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
-    private Player player;
-    private int currentRoom = 0;
+    private PlayerController player;
+    private int currentRoom = 1;
     [SerializeField]private int numberOfRooms;
 
     
     private void Awake()
     {
-        player = FindObjectOfType<Player>();
+        player = FindObjectOfType<PlayerController>();
         RoomController[] roomList = FindObjectsOfType<RoomController>();
         numberOfRooms = roomList.Length;
     }

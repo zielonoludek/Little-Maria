@@ -15,7 +15,7 @@ public class FieldOfView : MonoBehaviour
 
     private void Start()
     {
-        visibleTargets.Add(FindObjectOfType<Player>().transform);
+        visibleTargets.Add(FindObjectOfType<PlayerController>().transform);
     }
 
     public Vector2 DirFromAngle(float angleInDegrees, bool angleIsGlobal)
