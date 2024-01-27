@@ -26,7 +26,7 @@ public class FieldOfView : MonoBehaviour
             FindVisibleTargets();
         }
     }
-    
+
     private void FindVisibleTargets()
     {
         Collider2D[] targetsInViewRadius = Physics2D.OverlapCircleAll(transform.position, viewRadius, playerMask);
@@ -39,7 +39,7 @@ public class FieldOfView : MonoBehaviour
             if (angle < viewAngle / 2)
             {
                 float dstToTarget = Vector3.Distance(transform.position, target.position);
-                
+
                 if (!Physics2D.Raycast(transform.position, dirToTarget, dstToTarget, obstacleMask))
                 {
                     if (!visibleTargets.Contains(target))
