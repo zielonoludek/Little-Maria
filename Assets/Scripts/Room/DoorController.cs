@@ -16,7 +16,7 @@ public class DoorController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.layer == 7)
+        if (other.gameObject.layer == 7 || gameObject.CompareTag("ScaryMary"))
         {
             other.transform.position = playerTransportPoint.position;
             gameManager.AddRoom();

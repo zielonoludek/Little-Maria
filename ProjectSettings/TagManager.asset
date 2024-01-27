@@ -8,6 +8,7 @@ TagManager:
   - Gas
   - Room
   - Movable
+  - ScaryMary
   layers:
   - Default
   - TransparentFX

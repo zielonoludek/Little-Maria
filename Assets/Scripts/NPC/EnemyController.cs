@@ -15,7 +15,6 @@ public class EnemyController : MonoBehaviour
     private State _currentState;
 
     [SerializeField] private FieldOfView fov;
-    private PlayerController player;
 
     [SerializeField] private Transform[] patrolPoints;
     [SerializeField] private float patrolSpeed = 2f;
@@ -28,7 +27,6 @@ public class EnemyController : MonoBehaviour
     private void Awake()
     {
         _currentState = State.Patrol;
-        player = FindObjectOfType<PlayerController>();   
     }
 
     private void Update()
@@ -55,18 +53,18 @@ public class EnemyController : MonoBehaviour
             Debug.LogWarning("No patrol points set");
             return;
         }
-    
+
         Transform targetPatrolPoint = patrolPoints[_currentPatrolIndex];
         if (_timer <= 0f)
         {
             Vector3 direction = (targetPatrolPoint.position - transform.position).normalized;
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-            
+
             Quaternion targetRotation = Quaternion.Euler(new Vector3(0, 0, angle - 90));
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
 
             transform.position = Vector3.MoveTowards(transform.position, targetPatrolPoint.position, patrolSpeed * Time.deltaTime);
-        
+
             if (Vector2.Distance(transform.position, targetPatrolPoint.position) < 0.1f)
             {
                 _timer = waitTimeAtPatrolPoint;
@@ -86,6 +84,6 @@ public class EnemyController : MonoBehaviour
 
     private void AttackState()
     {
-        player.Kill();
+        Debug.Log("Player killed");
     }
 }

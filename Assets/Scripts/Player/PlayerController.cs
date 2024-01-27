@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -10,6 +11,13 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private GameObject gas;
 
+    private SFXScript sfx;
+
+    private void Awake()
+    {
+        sfx = GetComponentInChildren<SFXScript>();
+    }
+
     private void Update()
     {
         HandleMovement();
@@ -18,7 +26,7 @@ public class PlayerController : MonoBehaviour
     private void HandleMovement()
     {
         Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0);
-        transform.position += movement * moveSpeed * Time.deltaTime;
+        transform.position += movement * (moveSpeed * Time.deltaTime);
     }
     private void UseGas()
     {
@@ -36,6 +44,8 @@ public class PlayerController : MonoBehaviour
     }
     public void Kill()
     {
+        sfx.PlayDieAnim();
+        moveSpeed = 0;
         if (!shooted) transform.position = spawnPoint;
     }
 
