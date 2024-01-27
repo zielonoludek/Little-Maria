@@ -6,6 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="8d892714-3257-4935-9e07-26137b64ec86" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.PolyJam/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PolyJam/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Sprites/MC/MC_Idle/idle_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Mechanics/Gas.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Mechanics/Gas.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Mechanics/Pickup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Mechanics/Pickup.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,6 +22,7 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Editor/FOVEditor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Managers/UIManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Mechanics/Gas.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Mechanics/Pickup.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/NPC/FieldOfView.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -99,7 +104,8 @@
       <workItem from="1706340243743" duration="305000" />
       <workItem from="1706341467046" duration="4952000" />
       <workItem from="1706346948610" duration="5432000" />
-      <workItem from="1706354413645" duration="8193000" />
+      <workItem from="1706354413645" duration="10582000" />
+      <workItem from="1706370235380" duration="2504000" />
     </task>
     <servers />
   </component>
