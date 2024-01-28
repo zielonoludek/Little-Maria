@@ -9,6 +9,7 @@ TagManager:
   - Room
   - Movable
   - ScaryMary
+  - Maria
   layers:
   - Default
   - TransparentFX

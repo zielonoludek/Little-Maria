@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Android;
 using UnityEngine.EventSystems;
 using static Unity.VisualScripting.Member;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -24,9 +25,12 @@ public class PlayerController : MonoBehaviour
     private SFXScript sfx;
     [SerializeField] private AudioSource spraySource;
     [SerializeField] private AudioSource stepSource;
+    [SerializeField] private AudioSource deathSource;
+    [SerializeField] private AudioSource laughSource;
 
     [SerializeField] private Vector2 movement;
     private bool isFacingRight = true;
+    private float timer = 13f;
 
     private void Awake()
     {
@@ -61,6 +65,14 @@ public class PlayerController : MonoBehaviour
             paused = false;
             stepSource.Play();
         }
+        if (timer > 0) timer -= Time.deltaTime;
+        else
+        {
+            timer = 13;
+            laughSource.Play();
+        }
+            
+            
     }
     private void HandleMovement()
     {
@@ -114,6 +126,7 @@ public class PlayerController : MonoBehaviour
         if (!shooted)
         {
             sfx.PlayDieAnim();
+            deathSource.Play();
             isDead = true;
             Invoke("Born", 1);
             gameManager.maryAppearTimer -= 15;
@@ -128,7 +141,13 @@ public class PlayerController : MonoBehaviour
             Destroy(collision.gameObject);
         }
         else if (collision.CompareTag("Gas")) Kill();
+        else if (collision.CompareTag("Maria"))
+        {
+            Kill();
+            LoadLastscene();
+        }
     }
+    private void LoadLastscene() { SceneManager.LoadScene(17); }
     public void NewGas()
     {
         gasAmout = 6;

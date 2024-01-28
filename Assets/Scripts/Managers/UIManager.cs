@@ -19,6 +19,7 @@ public class UIManager : MonoBehaviour
 
     private bool _isGamePaused;
     
+
     private void Awake()
     {
         Instance = this;

@@ -56,4 +56,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Rooms/Room14.unity
     guid: b89cca3d40041a447b48724ecba603a4
+  - enabled: 1
+    path: Assets/Scenes/CutScenes/end.unity
+    guid: 8c43f17aaab915241b9a39131eb1a870
+  - enabled: 1
+    path: Assets/Scenes/CutScenes/start.unity
+    guid: 8d5c7d18f139ec34094566f9548b7fec
   m_configObjects: {}
