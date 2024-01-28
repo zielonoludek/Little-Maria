@@ -305,7 +305,6 @@ MonoBehaviour:
   gas: {fileID: 3295342516118524890, guid: c7cdf665b6030db4cbf50fec8475a898, type: 3}
   gasAmout: 0
   shooted: 0
-  spawnPoint: {x: 0, y: 0, z: 0}
   paused: 0
   spraySource: {fileID: 7374453089280187205}
   stepSource: {fileID: 8328496043707138634}
