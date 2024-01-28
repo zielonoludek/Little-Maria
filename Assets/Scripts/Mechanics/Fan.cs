@@ -9,12 +9,7 @@ public class Fan : MonoBehaviour
     private Vector3 direction;
     [SerializeField] private float speed = 100;
 
-    private AudioSource audioSource;
-
-    private void Awake()
-    {
-        audioSource.GetComponent<AudioSource>();
-    }
+    [SerializeField] private AudioSource audioSource;
 
     void Start()
     {

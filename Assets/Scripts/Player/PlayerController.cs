@@ -1,25 +1,31 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Android;
 using UnityEngine.EventSystems;
+using static Unity.VisualScripting.Member;
 
 public class PlayerController : MonoBehaviour
 {
+
+    [SerializeField] private GameObject gas;
+    [SerializeField] private int gasAmout = 0;
+
     private bool isDead = false;
     private float moveSpeed = 5;
     private Camera camera;
-    [SerializeField] private int gasAmout = 0;
     private float ignoreDuration = 1f;
     public bool shooted = false;
     private Vector3 spawnPoint;
+    [SerializeField]  private bool paused = false;
 
-    [SerializeField] private GameObject gas;
     private Animator animator;
     private Rigidbody2D rb;
     private SFXScript sfx;
+    [SerializeField] private AudioSource spraySource;
+    [SerializeField] private AudioSource stepSource;
 
-    private Vector2 movement;
-
-
+    [SerializeField] private Vector2 movement;
     private bool isFacingRight = true;
 
     private void Awake()
@@ -30,7 +36,6 @@ public class PlayerController : MonoBehaviour
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
     }
-
     private void FixedUpdate()
     {
         if (isDead) rb.constraints |= RigidbodyConstraints2D.FreezePosition;
@@ -40,12 +45,21 @@ public class PlayerController : MonoBehaviour
             HandleMovement();
             Flip();
             animator.SetFloat("xVelocity", Mathf.Abs(rb.velocity.magnitude));
-            
         }
     }
     private void Update()
     {
         if (!isDead && gasAmout > 0) UseGas();
+        if (movement == Vector2.zero)
+        {
+            stepSource.Pause();
+            paused = true;
+        }
+        else if (paused)
+        {
+            paused = false;
+            stepSource.Play();
+        }
     }
     private void HandleMovement()
     {
@@ -55,15 +69,17 @@ public class PlayerController : MonoBehaviour
         movement = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         rb.velocity = new Vector2(movement.x * moveSpeed, movement.y * moveSpeed);
     }
-
     private void UseGas()
     {
         if (Input.GetMouseButtonDown(0) )
         {
+            Invoke("StopIgnoringCollision", ignoreDuration * 2);
             Invoke("SpawnGas", ignoreDuration);
+
+            spraySource.Play();
+
             gasAmout--;
             shooted = true;
-            Invoke("StopIgnoringCollision", ignoreDuration*2);
             SprayAnim();
         }
     }
@@ -76,7 +92,6 @@ public class PlayerController : MonoBehaviour
         Vector3 target = camera.ScreenToWorldPoint(Input.mousePosition);
 
         Vector3 direction = (target - transform.position).normalized;
-        Debug.Log(direction);
 
         animator.ResetTrigger("Spray Up");
         animator.ResetTrigger("Spray Down");
@@ -102,7 +117,6 @@ public class PlayerController : MonoBehaviour
             Invoke("Born", 1);
         }
     }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Respawn"))
@@ -110,6 +124,7 @@ public class PlayerController : MonoBehaviour
             spawnPoint = collision.transform.position;
             Destroy(collision.gameObject);
         }
+        else if (collision.CompareTag("Gas")) Kill();
     }
     public void NewGas()
     {
@@ -120,7 +135,6 @@ public class PlayerController : MonoBehaviour
         isDead = false;
         transform.position = spawnPoint;
     }
-
     private void Flip()
     {
         if (isFacingRight && movement.x > 0f || !isFacingRight && movement.x < 0f)
@@ -131,14 +145,6 @@ public class PlayerController : MonoBehaviour
             transform.localScale = LoaclScale;
         }
     }
-    private void FlipLeft()
-    {
-        if (isFacingRight)
-        {
-            isFacingRight = !isFacingRight;
-            Vector3 LoaclScale = transform.localScale;
-            LoaclScale.x *= -1f;
-            transform.localScale = LoaclScale;
-        }
-    }
+    public int GetGasAmount() { return gasAmout;  }
+    
 }
