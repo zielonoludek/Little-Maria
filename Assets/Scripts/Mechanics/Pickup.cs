@@ -15,7 +15,7 @@ public class Pickup : MonoBehaviour
         if (other.gameObject.layer == 7)
         {
             player.NewGas();
-            UIManager.Instance.PickupItemUIPanel(pickupSprite);
+            UIManager.Instance.UpdateItemUIPanel(pickupSprite);
             Destroy(transform.gameObject);
         }
     }

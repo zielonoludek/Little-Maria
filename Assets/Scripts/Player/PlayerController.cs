@@ -7,16 +7,16 @@ using static Unity.VisualScripting.Member;
 
 public class PlayerController : MonoBehaviour
 {
+
     [SerializeField] private GameObject gas;
     [SerializeField] private int gasAmout = 0;
-    private GameManager gameManager;
 
     private bool isDead = false;
     private float moveSpeed = 5;
     private Camera camera;
     private float ignoreDuration = 1f;
     public bool shooted = false;
-    public Vector3 spawnPoint;
+    private Vector3 spawnPoint;
     [SerializeField]  private bool paused = false;
 
     private Animator animator;
@@ -30,7 +30,6 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
-        gameManager = FindFirstObjectByType<GameManager>();
         camera = FindObjectOfType<Camera>();
         spawnPoint = transform.position;
         sfx = GetComponentInChildren<SFXScript>();
@@ -116,7 +115,6 @@ public class PlayerController : MonoBehaviour
             sfx.PlayDieAnim();
             isDead = true;
             Invoke("Born", 1);
-            gameManager.maryAppearTimer -= 15;
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -124,7 +122,6 @@ public class PlayerController : MonoBehaviour
         if (collision.CompareTag("Respawn"))
         {
             spawnPoint = collision.transform.position;
-            gameManager.lastSpawnPoint = collision.gameObject;
             Destroy(collision.gameObject);
         }
         else if (collision.CompareTag("Gas")) Kill();
