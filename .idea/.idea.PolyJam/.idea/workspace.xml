@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="8d892714-3257-4935-9e07-26137b64ec86" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.PolyJam/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PolyJam/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Camera.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Camera.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Mechanics/Fan.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Mechanics/Fan.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Mechanics/Fan.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Mechanics/Fan.cs" afterDir="false" />
     </list>
@@ -111,7 +110,7 @@
       <workItem from="1706376612288" duration="7466000" />
       <workItem from="1706388650213" duration="5404000" />
       <workItem from="1706428846466" duration="6770000" />
-      <workItem from="1706437414117" duration="714000" />
+      <workItem from="1706437414117" duration="2319000" />
     </task>
     <servers />
   </component>
