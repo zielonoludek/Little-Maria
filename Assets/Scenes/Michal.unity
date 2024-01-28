@@ -1296,10 +1296,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7707875246102676981, guid: 804e6f69ae8ab964db4119c62505710c, type: 3}
-      propertyPath: maryMoveSpeed
-      value: 2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
