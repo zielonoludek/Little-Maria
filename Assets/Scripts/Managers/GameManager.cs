@@ -27,9 +27,6 @@ public class GameManager : MonoBehaviour
         {
             maryAppearTimer -= Time.deltaTime;
         }
-        
-        
-        Debug.Log((int)maryAppearTimer);
     }
     public void killPlayer()
     {
