@@ -159,6 +159,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7296124650763036280, guid: 46098da039240fe42b1543fbf14e3185, type: 3}
+      propertyPath: m_SortingOrder
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 8118420850863094219, guid: 46098da039240fe42b1543fbf14e3185, type: 3}
       propertyPath: m_Name
       value: Fan (2)
@@ -300,11 +304,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9076353588901264140, guid: 442bdb96597c5b341a1a9c99a25ea83f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -63.22
+      value: -64.04
       objectReference: {fileID: 0}
     - target: {fileID: 9076353588901264140, guid: 442bdb96597c5b341a1a9c99a25ea83f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -30.06
+      value: -30.85
       objectReference: {fileID: 0}
     - target: {fileID: 9076353588901264140, guid: 442bdb96597c5b341a1a9c99a25ea83f, type: 3}
       propertyPath: m_LocalPosition.z
