@@ -33,7 +33,15 @@ public class PlayerController : MonoBehaviour
     {
         HandleMovement();
         animator.SetFloat("xVelocity", Mathf.Abs(rb.velocity.magnitude));
-        if (gasAmout > 0) UseGas();
+        if (gasAmout > 0)
+        {
+            animator.SetBool("HasGas", true);
+            UseGas();
+        }
+        else if (gasAmout == 0)
+        {
+            animator.SetBool("HasGas", false);
+        }
         Flip();
     }
     private void HandleMovement()
