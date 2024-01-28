@@ -6,9 +6,16 @@
   <component name="ChangeListManager">
     <list default="true" id="8d892714-3257-4935-9e07-26137b64ec86" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.PolyJam/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PolyJam/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Camera.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Camera.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Mechanics/Fan.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Mechanics/Fan.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animation/Props/FAn/FanDown.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animation/Props/FAn/FanDown.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animation/Props/FAn/FanDown.anim.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animation/Props/FAn/FanDown.anim.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Sprites/Props/FanDown/hsdjasd.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Sprites/Props/FanDown/hsdjasd.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Sprites/Props/FanDown/sdfsdf.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Sprites/Props/FanDown/sdfsdf.png.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Mechanics/Fan.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Mechanics/Fan.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPC/EnemyController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NPC/EnemyController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerController.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerController.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Room/CameraController.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Room/CameraController.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Room/DoorController.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Room/DoorController.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Room/RoomController.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Room/RoomController.cs.meta" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,7 +118,7 @@
       <workItem from="1706376612288" duration="7466000" />
       <workItem from="1706388650213" duration="5404000" />
       <workItem from="1706428846466" duration="6770000" />
-      <workItem from="1706437414117" duration="714000" />
+      <workItem from="1706437414117" duration="1323000" />
     </task>
     <servers />
   </component>

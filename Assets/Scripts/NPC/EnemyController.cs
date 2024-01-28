@@ -26,6 +26,11 @@ public class EnemyController : MonoBehaviour
     private int _currentPatrolIndex;
     private float _timer;
 
+
+    private Animator animator;
+
+    private bool PlayerSeen = false;
+
     private void Awake()
     {
         _currentState = State.Patrol;
@@ -34,6 +39,7 @@ public class EnemyController : MonoBehaviour
     private void Start()
     {
         _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        animator = GetComponentInChildren<Animator>();
     }
 
     private void Update()
@@ -88,6 +94,7 @@ public class EnemyController : MonoBehaviour
 
         if (fov.visibleTargets.Count > 0)
         {
+            PlayerSeen = true;
             _currentState = State.Attack;
         }
     }
@@ -95,5 +102,7 @@ public class EnemyController : MonoBehaviour
     private void AttackState()
     {
         Debug.Log("Player killed");
+        if (PlayerSeen) animator.SetTrigger("En_Attack");
+        PlayerSeen = false;
     }
 }
