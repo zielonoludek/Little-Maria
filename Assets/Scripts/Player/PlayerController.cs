@@ -1,5 +1,7 @@
 using System;
+using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class PlayerController : MonoBehaviour
 {
@@ -22,7 +24,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         HandleMovement();
         animator.SetFloat("xVelocity", Mathf.Abs(rb.velocity.x));
@@ -31,9 +33,15 @@ public class PlayerController : MonoBehaviour
     private void HandleMovement()
     {
         //Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0);
-        Vector2 rbmovement = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-        rb.velocity += rbmovement * (moveSpeed * Time.deltaTime);
         //transform.position += movement * (moveSpeed * Time.deltaTime);
+
+
+        Vector2 rbmovement = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        rb.velocity = rbmovement * moveSpeed * Time.deltaTime;
+
+
+
+
     }
     private void UseGas()
     {
