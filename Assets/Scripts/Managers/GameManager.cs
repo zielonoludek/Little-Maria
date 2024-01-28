@@ -7,18 +7,20 @@ public class GameManager : MonoBehaviour
 {
     private PlayerController player;
     private int currentRoom = 2;
-    
-    public float maryAppearTimer;
+    public int deathCounter = 0;
+    public GameObject lastSpawnPoint;
+    [HideInInspector] public float maryAppearTimer = 60;
+    [SerializeField] private GameObject maria;
     
     private void Awake()
     {
         player = FindObjectOfType<PlayerController>();
         SceneManager.LoadScene(currentRoom, LoadSceneMode.Additive);
 
-
     }
     private void Update()
     {
+        
         if (Input.GetKeyDown(KeyCode.K)) killPlayer();
         if (Input.GetKeyDown(KeyCode.R)) ResetRoom();
         if (Input.GetKeyDown(KeyCode.Escape)) UIManager.Instance.TogglePauseMenu();
@@ -27,6 +29,7 @@ public class GameManager : MonoBehaviour
         {
             maryAppearTimer -= Time.deltaTime;
         }
+        else Instantiate(maria);
     }
     public void killPlayer()
     {

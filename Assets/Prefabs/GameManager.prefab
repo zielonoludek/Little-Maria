@@ -44,3 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e0e705a568b92e47a1738bbe3184d72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathCounter: 0
+  lastSpawnPoint: {fileID: 0}
+  maryAppearTimer: 60
+  maria: {fileID: 3784375082969764977, guid: 804e6f69ae8ab964db4119c62505710c, type: 3}

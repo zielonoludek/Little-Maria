@@ -5,55 +5,46 @@ using UnityEngine;
 
 public class MaryController : MonoBehaviour
 {
-    [SerializeField] private AudioClip maryLaughingSound;
-    [SerializeField] private float maryMoveSpeed;
+    [SerializeField] private AudioSource source;
+    [SerializeField] private AudioSource himerasource;
+    private float maryMoveSpeed = 3;
     
     private PlayerController player;
     private GameManager gameManager;
+    private float timer = 30;
+    private bool attack = false;
+    private float himeraTimer = 10;
 
-    private int playerCatched;
-    private Vector3 spawnPosition;
 
     private void Awake()
     {
         player = FindObjectOfType<PlayerController>();
         gameManager = FindObjectOfType<GameManager>();
+        source.Play();
     }
 
     private void Update()
     {
-        if (gameManager.maryAppearTimer <= 0)
+        if (timer > 0) timer -= Time.deltaTime;
+        else if (timer == 0)
         {
-            GoTowardsPlayer();   
+            attack = true;
+            transform.position = gameManager.lastSpawnPoint.transform.position;
         }
-    }
 
-    private void OnCollisionEnter2D(Collision2D other)
-    {
-        if (other.gameObject.layer == 7)
-        {
-            maryMoveSpeed = 0;
-            playerCatched++;
-            player.Kill();
-
-            if (playerCatched > 3)
-            {
-                //play cutscene
-            }
-        }
-    }
-
-    private void GoTowardsPlayer()
-    {
-        if (player != null)
+        if (attack)
         {
             Vector3 direction = player.transform.position - transform.position;
             direction.Normalize();
             transform.Translate(direction * (maryMoveSpeed * Time.deltaTime));
         }
+        source.volume += Time.deltaTime;
+
+        if (himeraTimer > 0) himeraTimer -= Time.deltaTime;
         else
         {
-            Debug.LogWarning("Player not found.");
+            himeraTimer = 10;
+            himerasource.Play();
         }
     }
 }
