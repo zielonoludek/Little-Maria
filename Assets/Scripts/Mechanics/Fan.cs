@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -6,12 +7,20 @@ using UnityEngine;
 public class Fan : MonoBehaviour
 {
     private Vector3 direction;
-    [SerializeField] private float speed = 100; 
+    [SerializeField] private float speed = 100;
+
+    private AudioSource audioSource;
+
+    private void Awake()
+    {
+        audioSource.GetComponent<AudioSource>();
+    }
 
     void Start()
     {
         Vector3 target = transform.parent.position;
         direction = (transform.position - target).normalized;
+        audioSource.Play();
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
