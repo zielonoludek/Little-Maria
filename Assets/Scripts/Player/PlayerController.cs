@@ -120,7 +120,6 @@ public class PlayerController : MonoBehaviour
         isDead = false;
         transform.position = spawnPoint;
     }
-
     private void Flip()
     {
         if (isFacingRight && movement.x > 0f || !isFacingRight && movement.x < 0f)
@@ -131,14 +130,6 @@ public class PlayerController : MonoBehaviour
             transform.localScale = LoaclScale;
         }
     }
-    private void FlipLeft()
-    {
-        if (isFacingRight)
-        {
-            isFacingRight = !isFacingRight;
-            Vector3 LoaclScale = transform.localScale;
-            LoaclScale.x *= -1f;
-            transform.localScale = LoaclScale;
-        }
-    }
+    public int GetGasAmount() { return gasAmout;  }
+    
 }
