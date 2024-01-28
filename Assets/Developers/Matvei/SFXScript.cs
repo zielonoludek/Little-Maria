@@ -10,6 +10,7 @@ public class SFXScript : MonoBehaviour
 
     private Vector3 Respawn = new Vector3 (-0.58f, 0.37f, 0);
     private Vector3 Death = new Vector3(-0.7f, 0.6f, 0);
+    private Vector3 Spray = new Vector3(-0.7f, 0.6f, 0);
 
 
     private Animator animator;
@@ -20,7 +21,9 @@ public class SFXScript : MonoBehaviour
     void Start()
     {
         renderer = GetComponent<SpriteRenderer>();
+        renderer.sprite = null;
         renderer.enabled = false;
+
         animator = GetComponent<Animator>();
     }
 
@@ -47,6 +50,16 @@ public class SFXScript : MonoBehaviour
 
         animator.SetTrigger("Death");
     }
+
+    public void PlaySprayAnim()
+    {
+        transform.localPosition = Spray;
+        transform.localScale = new Vector3(5f, 5f, 5f);
+        renderer.enabled = true;
+
+        animator.SetTrigger("Death");
+    }
+
 
 
 
