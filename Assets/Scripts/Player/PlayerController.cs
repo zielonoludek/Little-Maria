@@ -1,5 +1,7 @@
 using System;
+using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class PlayerController : MonoBehaviour
 {
@@ -10,23 +12,36 @@ public class PlayerController : MonoBehaviour
     private Vector3 spawnPoint;
 
     [SerializeField] private GameObject gas;
+    private Animator animator;
+    private Rigidbody2D rb;
 
     private SFXScript sfx;
 
     private void Awake()
     {
         sfx = GetComponentInChildren<SFXScript>();
+        animator = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         HandleMovement();
-        if(gasAmout > 0) UseGas();
+        animator.SetFloat("xVelocity", Mathf.Abs(rb.velocity.x));
+        if (gasAmout > 0) UseGas();
     }
     private void HandleMovement()
     {
-        Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0);
-        transform.position += movement * (moveSpeed * Time.deltaTime);
+        //Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0);
+        //transform.position += movement * (moveSpeed * Time.deltaTime);
+
+
+        Vector2 rbmovement = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        rb.velocity = rbmovement * moveSpeed * Time.deltaTime;
+
+
+
+
     }
     private void UseGas()
     {
