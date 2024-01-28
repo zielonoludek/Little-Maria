@@ -6,7 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="8d892714-3257-4935-9e07-26137b64ec86" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.PolyJam/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PolyJam/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NPC/EnemyController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NPC/EnemyController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Canvas.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Canvas.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Michal.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Michal.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/UIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/UIManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/MainMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/MainMenu.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,7 +114,7 @@
       <workItem from="1706388650213" duration="5404000" />
       <workItem from="1706428846466" duration="6770000" />
       <workItem from="1706437414117" duration="3051000" />
-      <workItem from="1706441614076" duration="302000" />
+      <workItem from="1706441614076" duration="2184000" />
     </task>
     <servers />
   </component>
