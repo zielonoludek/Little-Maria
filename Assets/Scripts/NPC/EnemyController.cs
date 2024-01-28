@@ -53,6 +53,7 @@ public class EnemyController : MonoBehaviour
                 AttackState();
                 break;
             case State.Dead:
+                DeadState();
                 break;
             default:
                 throw new ArgumentOutOfRangeException();
@@ -99,10 +100,23 @@ public class EnemyController : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Gas"))
+        {
+            _currentState = State.Dead;
+        }
+    }
+
     private void AttackState()
     {
         Debug.Log("Player killed");
         if (PlayerSeen) animator.SetTrigger("En_Attack");
         PlayerSeen = false;
+    }
+
+    private void DeadState()
+    {
+        Destroy(gameObject);
     }
 }
