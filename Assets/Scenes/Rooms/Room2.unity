@@ -240,6 +240,10 @@ PrefabInstance:
       propertyPath: patrolPoints.Array.data[1]
       value: 
       objectReference: {fileID: 742904720}
+    - target: {fileID: 4569610388647753340, guid: 0a64f4d7df2e299409af6a632a8d0b06, type: 3}
+      propertyPath: viewAngle
+      value: 47
+      objectReference: {fileID: 0}
     - target: {fileID: 5177004269785123153, guid: 0a64f4d7df2e299409af6a632a8d0b06, type: 3}
       propertyPath: m_Sources.Array.data[0].sourceTransform
       value: 
@@ -344,6 +348,10 @@ PrefabInstance:
       propertyPath: patrolPoints.Array.data[1]
       value: 
       objectReference: {fileID: 1601050165}
+    - target: {fileID: 4569610388647753340, guid: 0a64f4d7df2e299409af6a632a8d0b06, type: 3}
+      propertyPath: viewAngle
+      value: 32
+      objectReference: {fileID: 0}
     - target: {fileID: 5177004269785123153, guid: 0a64f4d7df2e299409af6a632a8d0b06, type: 3}
       propertyPath: m_Sources.Array.data[0].sourceTransform
       value: 
