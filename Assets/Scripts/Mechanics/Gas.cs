@@ -22,12 +22,11 @@ public class Gas : MonoBehaviour
         Vector3 direction = (target - transform.position).normalized;
         if(!isStatic) rb.AddForce(direction * speed);
     }
-    private void OnTriggerStay2D(Collider2D collider)
+    private void OnTriggerExit2D(Collider2D collider)
     {
         if (collider.gameObject.CompareTag("Room")) Destroy(gameObject);
         else if (collider.gameObject.CompareTag("Movable"))
         {
-            player.Kill();
             if (collider.gameObject.layer != 7)  Destroy(collider.gameObject);
         }
     }

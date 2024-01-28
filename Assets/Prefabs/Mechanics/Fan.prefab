@@ -238,8 +238,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 2.7635117, y: -0.25323027}
-  m_Size: {x: 19.616436, y: 10.793199}
+  m_Offset: {x: 0.5, y: 0}
+  m_Size: {x: 20.39, y: 7.99}
   m_Direction: 1
 --- !u!114 &796970294550084237
 MonoBehaviour:
@@ -254,6 +254,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 100
+  audioSource: {fileID: 280509625649447679}
 --- !u!95 &8027339646041912621
 Animator:
   serializedVersion: 5
@@ -287,7 +288,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 90c11ef0bd4440d4aba564e9a39f04b5, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.05
+  m_Volume: 0.01
   m_Pitch: 1
   Loop: 1
   Mute: 0
