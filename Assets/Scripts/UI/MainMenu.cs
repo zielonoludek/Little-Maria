@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -10,7 +9,6 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private Button quitButton;
     [SerializeField] private Button backToMainMenuButton;
     [SerializeField] private GameObject creditsPanel;
-
     private void Awake()
     {
         playButton.onClick.AddListener(() =>
@@ -22,7 +20,7 @@ public class MainMenu : MonoBehaviour
         {
             creditsPanel.SetActive(true);
         });
-        
+
         backToMainMenuButton.onClick.AddListener(() =>
         {
             creditsPanel.SetActive(false);
@@ -31,7 +29,7 @@ public class MainMenu : MonoBehaviour
         quitButton.onClick.AddListener(Application.Quit);
         Time.timeScale = 1f;
     }
-
+    
     private void Start()
     {
         creditsPanel.SetActive(false);
