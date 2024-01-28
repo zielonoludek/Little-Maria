@@ -44,9 +44,13 @@ public class PlayerController : MonoBehaviour
     }
     public void Kill()
     {
-        sfx.PlayDieAnim();
-        moveSpeed = 0;
-        if (!shooted) transform.position = spawnPoint;
+        if (!shooted)
+        {
+            moveSpeed = 0;
+            sfx.PlayDieAnim();
+            transform.position = spawnPoint;
+            Invoke("IncreaseMoveSpeed", 1);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -60,5 +64,9 @@ public class PlayerController : MonoBehaviour
     public void NewGas()
     {
         gasAmout = 6;
+    }
+    private void IncreaseMoveSpeed()
+    {
+        moveSpeed = 0;
     }
 }

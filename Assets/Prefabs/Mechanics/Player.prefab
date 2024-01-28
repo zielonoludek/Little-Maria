@@ -11,11 +11,7 @@ GameObject:
   - component: {fileID: 8512732086729527747}
   - component: {fileID: 4414011854779065712}
   - component: {fileID: 5932068164658702416}
-<<<<<<< HEAD
   - component: {fileID: 977734775704576368}
-=======
-  - component: {fileID: 1682282062389089719}
->>>>>>> 24d8c180f9d340953231df8eff24d8e055c4edcd
   m_Layer: 0
   m_Name: SFXPlayer
   m_TagString: Untagged
@@ -111,11 +107,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
-<<<<<<< HEAD
 --- !u!114 &977734775704576368
-=======
---- !u!114 &1682282062389089719
->>>>>>> 24d8c180f9d340953231df8eff24d8e055c4edcd
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -141,6 +133,7 @@ GameObject:
   - component: {fileID: 6463588067077105408}
   - component: {fileID: 1747059479284203653}
   - component: {fileID: 4794054879790908128}
+  - component: {fileID: 3689300267229780020}
   m_Layer: 7
   m_Name: Player
   m_TagString: Movable
@@ -293,3 +286,16 @@ MonoBehaviour:
   gasAmout: 0
   shooted: 0
   gas: {fileID: 3295342516118524890, guid: c7cdf665b6030db4cbf50fec8475a898, type: 3}
+--- !u!114 &3689300267229780020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5185172569218130716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1f2629c93767fb4ea712dadf9bb9b1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offset: -1
