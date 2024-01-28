@@ -4,7 +4,9 @@ using UnityEngine.EventSystems;
 
 public class PlayerController : MonoBehaviour
 {
+    private bool isDead = false;
     private float moveSpeed = 5;
+    private Camera camera;
     [SerializeField] private int gasAmout = 0;
     private float ignoreDuration = 1f;
     public bool shooted = false;
@@ -13,9 +15,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject gas;
     private Animator animator;
     private Rigidbody2D rb;
-
     private SFXScript sfx;
-    private bool moving;
 
     private Vector2 movement;
 
@@ -24,6 +24,8 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
+        camera = FindObjectOfType<Camera>();
+        spawnPoint = transform.position;
         sfx = GetComponentInChildren<SFXScript>();
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
@@ -31,36 +33,61 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        HandleMovement();
-        animator.SetFloat("xVelocity", Mathf.Abs(rb.velocity.magnitude));
-        if (gasAmout > 0)
+        if (isDead) rb.constraints |= RigidbodyConstraints2D.FreezePosition;
+        else
         {
-            animator.SetBool("HasGas", true);
-            UseGas();
+            rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+            HandleMovement();
+            Flip();
+            animator.SetFloat("xVelocity", Mathf.Abs(rb.velocity.magnitude));
+            
         }
-        else if (gasAmout == 0)
-        {
-            animator.SetBool("HasGas", false);
-        }
-        Flip();
+    }
+    private void Update()
+    {
+        if (!isDead && gasAmout > 0) UseGas();
     }
     private void HandleMovement()
     {
-        //Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0);
-        //transform.position += movement * (moveSpeed * Time.deltaTime);
+        if (gasAmout > 0) animator.SetBool("HasGas", true);
+        else animator.SetBool("HasGas", false);
 
         movement = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         rb.velocity = new Vector2(movement.x * moveSpeed, movement.y * moveSpeed);
     }
+
     private void UseGas()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) )
         {
-            Instantiate(gas, transform.position, transform.rotation);
+            Invoke("SpawnGas", ignoreDuration);
             gasAmout--;
             shooted = true;
-            Invoke("StopIgnoringCollision", ignoreDuration);
+            Invoke("StopIgnoringCollision", ignoreDuration*2);
+            SprayAnim();
         }
+    }
+    private void SpawnGas()
+    {
+        Instantiate(gas, transform.position, transform.rotation);
+    }
+    private void SprayAnim()
+    {
+        Vector3 target = camera.ScreenToWorldPoint(Input.mousePosition);
+
+        Vector3 direction = (target - transform.position).normalized;
+        Debug.Log(direction);
+
+        animator.ResetTrigger("Spray Up");
+        animator.ResetTrigger("Spray Down");
+        animator.ResetTrigger("Spray Left");
+
+        if (Mathf.Abs(direction.y) > Mathf.Abs(direction.x))
+        {
+            if (direction.y > 0) animator.SetTrigger("Spray Up");
+            else animator.SetTrigger("Spray Down");
+        }
+        else animator.SetTrigger("Spray Left");
     }
     void StopIgnoringCollision()
     {
@@ -70,10 +97,9 @@ public class PlayerController : MonoBehaviour
     {
         if (!shooted)
         {
-            moveSpeed = 0;
             sfx.PlayDieAnim();
-            transform.position = spawnPoint;
-            Invoke("IncreaseMoveSpeed", 1);
+            isDead = true;
+            Invoke("Born", 1);
         }
     }
 
@@ -89,12 +115,11 @@ public class PlayerController : MonoBehaviour
     {
         gasAmout = 6;
     }
-    private void IncreaseMoveSpeed()
+    private void Born()
     {
-        moveSpeed = 0;
+        isDead = false;
+        transform.position = spawnPoint;
     }
-
-
 
     private void Flip()
     {
@@ -106,7 +131,14 @@ public class PlayerController : MonoBehaviour
             transform.localScale = LoaclScale;
         }
     }
-
-
-
+    private void FlipLeft()
+    {
+        if (isFacingRight)
+        {
+            isFacingRight = !isFacingRight;
+            Vector3 LoaclScale = transform.localScale;
+            LoaclScale.x *= -1f;
+            transform.localScale = LoaclScale;
+        }
+    }
 }
