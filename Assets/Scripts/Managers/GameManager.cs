@@ -8,8 +8,8 @@ public class GameManager : MonoBehaviour
     private PlayerController player;
     private int currentRoom = 1;
     [SerializeField]private int numberOfRooms;
-
-    [SerializeField] private float maryAppearTimer;
+    
+    public float maryAppearTimer;
     
     private void Awake()
     {
@@ -23,8 +23,13 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R)) ResetRoom();
         if (Input.GetKeyDown(KeyCode.Escape)) UIManager.Instance.TogglePauseMenu();
 
-        maryAppearTimer -= Time.deltaTime;
-        // Debug.Log((int)maryAppearTimer);
+        if (maryAppearTimer > 0)
+        {
+            maryAppearTimer -= Time.deltaTime;
+        }
+        
+        
+        Debug.Log((int)maryAppearTimer);
     }
     public void killPlayer()
     {

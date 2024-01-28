@@ -9,15 +9,23 @@ public class MaryController : MonoBehaviour
     [SerializeField] private float maryMoveSpeed;
     
     private PlayerController player;
+    private GameManager gameManager;
+
+    private int playerCatched;
+    private Vector3 spawnPosition;
 
     private void Awake()
     {
         player = FindObjectOfType<PlayerController>();
+        gameManager = FindObjectOfType<GameManager>();
     }
 
     private void Update()
     {
-        GoTowardsPlayer();
+        if (gameManager.maryAppearTimer <= 0)
+        {
+            GoTowardsPlayer();   
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -25,9 +33,13 @@ public class MaryController : MonoBehaviour
         if (other.gameObject.layer == 7)
         {
             maryMoveSpeed = 0;
+            playerCatched++;
             player.Kill();
-            Debug.Log("u fkd up");
-            //death animation, restart level etc.
+
+            if (playerCatched > 3)
+            {
+                //play cutscene
+            }
         }
     }
 
