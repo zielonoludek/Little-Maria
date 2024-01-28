@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class PlayerController : MonoBehaviour
 {
@@ -14,6 +15,12 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
 
     private SFXScript sfx;
+    private bool moving;
+
+    private Vector2 movement;
+
+
+    private bool isFacingRight = true;
 
     private void Awake()
     {
@@ -22,18 +29,28 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         HandleMovement();
-        animator.SetFloat("xVelocity", Mathf.Abs(rb.velocity.x));
-        if (gasAmout > 0) UseGas();
+        animator.SetFloat("xVelocity", Mathf.Abs(rb.velocity.magnitude));
+        if (gasAmout > 0)
+        {
+            animator.SetBool("HasGas", true);
+            UseGas();
+        }
+        else if (gasAmout == 0)
+        {
+            animator.SetBool("HasGas", false);
+        }
+        Flip();
     }
     private void HandleMovement()
     {
         //Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0);
-        Vector2 rbmovement = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-        rb.velocity += rbmovement * (moveSpeed * Time.deltaTime);
         //transform.position += movement * (moveSpeed * Time.deltaTime);
+
+        movement = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        rb.velocity = new Vector2(movement.x * moveSpeed, movement.y * moveSpeed);
     }
     private void UseGas()
     {
@@ -76,4 +93,20 @@ public class PlayerController : MonoBehaviour
     {
         moveSpeed = 0;
     }
+
+
+
+    private void Flip()
+    {
+        if (isFacingRight && movement.x > 0f || !isFacingRight && movement.x < 0f)
+        {
+            isFacingRight = !isFacingRight;
+            Vector3 LoaclScale = transform.localScale;
+            LoaclScale.x *= -1f;
+            transform.localScale = LoaclScale;
+        }
+    }
+
+
+
 }
