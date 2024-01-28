@@ -21,12 +21,19 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private float rotationSpeed = 5f;
     [SerializeField] private float waitTimeAtPatrolPoint = 2f;
 
+    private SpriteRenderer _spriteRenderer;
+
     private int _currentPatrolIndex;
     private float _timer;
 
     private void Awake()
     {
         _currentState = State.Patrol;
+    }
+
+    private void Start()
+    {
+        _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
     }
 
     private void Update()
@@ -59,6 +66,9 @@ public class EnemyController : MonoBehaviour
         {
             Vector3 direction = (targetPatrolPoint.position - transform.position).normalized;
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+
+            bool movingRight = direction.x > 0;
+            _spriteRenderer.flipX = movingRight;
 
             Quaternion targetRotation = Quaternion.Euler(new Vector3(0, 0, angle - 90));
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
