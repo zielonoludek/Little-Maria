@@ -6,16 +6,16 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     private PlayerController player;
-    private int currentRoom = 1;
-    [SerializeField]private int numberOfRooms;
+    private int currentRoom = 2;
     
     public float maryAppearTimer;
     
     private void Awake()
     {
         player = FindObjectOfType<PlayerController>();
-        RoomController[] roomList = FindObjectsOfType<RoomController>();
-        numberOfRooms = roomList.Length;
+        SceneManager.LoadScene(currentRoom, LoadSceneMode.Additive);
+
+
     }
     private void Update()
     {

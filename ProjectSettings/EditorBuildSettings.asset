@@ -23,4 +23,37 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Rooms/Room3.unity
     guid: bc02173aee80d384f9a697d63152b9fb
+  - enabled: 1
+    path: Assets/Scenes/Rooms/Room4.unity
+    guid: da5c5da9fa44b94408ed84111c9cb770
+  - enabled: 1
+    path: Assets/Scenes/Rooms/Room5.unity
+    guid: e05a61685a76aa94eaeb935fd9cb5385
+  - enabled: 1
+    path: Assets/Scenes/Rooms/Room6.unity
+    guid: a37bc81d6ab47b4409dac45ecaf284e1
+  - enabled: 1
+    path: Assets/Scenes/Rooms/Room7.unity
+    guid: c2eec2a6e8fccf1468aae0d4075ad8e6
+  - enabled: 1
+    path: Assets/Scenes/Rooms/Room8.unity
+    guid: a5a35f75d6fc66c4daba88aab0871cbb
+  - enabled: 1
+    path: Assets/Scenes/Rooms/Room9.unity
+    guid: 700b5ca91956b4d4ea9aa6d5b5fa222c
+  - enabled: 1
+    path: Assets/Scenes/Rooms/Room10.unity
+    guid: 7bbfe64dda370cc4ab1abc3c9da2126b
+  - enabled: 1
+    path: Assets/Scenes/Rooms/Room11.unity
+    guid: d7ed6a895a96b1f4fa5d31e7f478848f
+  - enabled: 1
+    path: Assets/Scenes/Rooms/Room12.unity
+    guid: 0bc00eb753574c44bac2d72cc3a3a112
+  - enabled: 1
+    path: Assets/Scenes/Rooms/Room13.unity
+    guid: 4f5dc8adb65e06a439d2d46807904795
+  - enabled: 1
+    path: Assets/Scenes/Rooms/Room14.unity
+    guid: b89cca3d40041a447b48724ecba603a4
   m_configObjects: {}

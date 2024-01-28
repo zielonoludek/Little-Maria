@@ -33,7 +33,6 @@ public class UIManager : MonoBehaviour
     public void TogglePauseMenu()
     {
         _isGamePaused = !_isGamePaused;
-        Debug.Log(_isGamePaused);
         if (_isGamePaused)
         {
             Time.timeScale = 0f;
