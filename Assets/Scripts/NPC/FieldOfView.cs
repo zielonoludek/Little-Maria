@@ -5,19 +5,13 @@ using UnityEngine;
 
 public class FieldOfView : MonoBehaviour
 {
-    public float viewRadius;
     [Range(0, 360)] public float viewAngle;
-
+    public float viewRadius;
     public LayerMask playerMask;
     public LayerMask obstacleMask;
-
     public List<Transform> visibleTargets = new List<Transform>();
 
-    private void Start()
-    {
-        StartCoroutine(FindTargetsWithDelay(0.2f));
-    }
-
+    private void Start() => StartCoroutine(FindTargetsWithDelay(0.2f));
     IEnumerator FindTargetsWithDelay(float delay)
     {
         while (true)
@@ -26,7 +20,6 @@ public class FieldOfView : MonoBehaviour
             FindVisibleTargets();
         }
     }
-
     private void FindVisibleTargets()
     {
         Collider2D[] targetsInViewRadius = Physics2D.OverlapCircleAll(transform.position, viewRadius, playerMask);
@@ -40,23 +33,16 @@ public class FieldOfView : MonoBehaviour
             {
                 float dstToTarget = Vector3.Distance(transform.position, target.position);
 
-                if (!Physics2D.Raycast(transform.position, dirToTarget, dstToTarget, obstacleMask))
+                if (!Physics2D.Raycast(transform.position, dirToTarget, dstToTarget, obstacleMask) && !visibleTargets.Contains(target))
                 {
-                    if (!visibleTargets.Contains(target))
-                    {
-                        visibleTargets.Add(target);
-                    }
+                    visibleTargets.Add(target);
                 }
             }
         }
     }
-
     public Vector2 DirFromAngle(float angleInDegrees, bool angleIsGlobal)
     {
-        if (!angleIsGlobal)
-        {
-            angleInDegrees -= transform.eulerAngles.z;
-        }
+        if (!angleIsGlobal) angleInDegrees -= transform.eulerAngles.z;
         return new Vector2 (Mathf.Sin(angleInDegrees * Mathf.Deg2Rad), Mathf.Cos(angleInDegrees * Mathf.Deg2Rad));
     }
 }

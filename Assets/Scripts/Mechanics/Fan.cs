@@ -1,14 +1,9 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Fan : MonoBehaviour
 {
     private Vector3 direction;
     [SerializeField] private float speed = 100;
-
     [SerializeField] private AudioSource audioSource;
 
     void Start()

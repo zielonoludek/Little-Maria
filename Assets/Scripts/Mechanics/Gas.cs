@@ -1,12 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Gas : MonoBehaviour
 {
     private Camera camera;
     private Rigidbody2D rb;
-    private PlayerController player;
     private float speed = 300;
     [SerializeField] bool isStatic = false;
 
@@ -14,7 +11,6 @@ public class Gas : MonoBehaviour
     {
         camera = FindObjectOfType<Camera>();
         rb = GetComponent<Rigidbody2D>();
-        player = FindObjectOfType<PlayerController>();
     }
     public void Start()
     {
@@ -25,9 +21,9 @@ public class Gas : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collider)
     {
         if (collider.gameObject.CompareTag("Room")) Destroy(gameObject);
-        else if (collider.gameObject.CompareTag("Movable"))
+        else if (collider.gameObject.CompareTag("Movable") && collider.gameObject.layer != 7)
         {
-            if (collider.gameObject.layer != 7)  Destroy(collider.gameObject);
+            Destroy(collider.gameObject);
         }
     }
 }

@@ -5,32 +5,23 @@ using UnityEngine.UI;
 public class UIManager : MonoBehaviour
 {
     public static UIManager Instance { get; private set; }
-    
+    private bool _isGamePaused;
     public static Action OnGamePaused;
     public static Action OnGameUnpaused;
 
     [SerializeField] private Image imageSlot;
-
-    private bool _isGamePaused;
     
-
-    private void Awake()
-    {
-        Instance = this;
-    }
-
+    private void Awake() => Instance = this;
     private void Start()
     {
         _isGamePaused = false;
         imageSlot.enabled = false;
     }
-
     public void UpdateItemUIPanel(Sprite itemImage)
     {
         imageSlot.sprite = itemImage;
         imageSlot.enabled = true;
     }
-
     public void TogglePauseMenu()
     {
         _isGamePaused = !_isGamePaused;

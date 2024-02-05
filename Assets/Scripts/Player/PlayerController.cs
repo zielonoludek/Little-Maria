@@ -1,24 +1,21 @@
-using System;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Android;
-using UnityEngine.EventSystems;
-using static Unity.VisualScripting.Member;
-using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
+    public bool shooted = false;
 
     [SerializeField] private GameObject gas;
     [SerializeField] private int gasAmout = 0;
+    [SerializeField] private bool paused = false;
+    [SerializeField] private Vector2 movement;
 
     private bool isDead = false;
     private float moveSpeed = 5;
     private Camera camera;
     private float ignoreDuration = 1f;
-    public bool shooted = false;
     private Vector3 spawnPoint;
-    [SerializeField]  private bool paused = false;
+    private bool isFacingRight = true;
+    private float timer = 13f;
 
     private Animator animator;
     private Rigidbody2D rb;
@@ -27,10 +24,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private AudioSource stepSource;
     [SerializeField] private AudioSource deathSource;
     [SerializeField] private AudioSource laughSource;
-
-    [SerializeField] private Vector2 movement;
-    private bool isFacingRight = true;
-    private float timer = 13f;
 
     private void Awake()
     {
@@ -69,9 +62,7 @@ public class PlayerController : MonoBehaviour
         {
             timer = 13;
             laughSource.Play();
-        }
-            
-            
+        }   
     }
     private void HandleMovement()
     {
@@ -95,14 +86,9 @@ public class PlayerController : MonoBehaviour
             SprayAnim();
         }
     }
-    private void SpawnGas()
-    {
-        Instantiate(gas, transform.position, transform.rotation);
-    }
     private void SprayAnim()
     {
         Vector3 target = camera.ScreenToWorldPoint(Input.mousePosition);
-
         Vector3 direction = (target - transform.position).normalized;
 
         animator.ResetTrigger("Spray Up");
@@ -116,10 +102,7 @@ public class PlayerController : MonoBehaviour
         }
         else animator.SetTrigger("Spray Left");
     }
-    void StopIgnoringCollision()
-    {
-        shooted = false;
-    }
+    void StopIgnoringCollision() => shooted = false;
     public void Kill()
     {
         if (!shooted)
@@ -137,18 +120,10 @@ public class PlayerController : MonoBehaviour
             spawnPoint = collision.transform.position;
             Destroy(collision.gameObject);
         }
-        else if (collision.CompareTag("Gas")) Kill();
-        else if (collision.CompareTag("Maria"))
-        {
-            Kill();
-            LoadLastscene();
-        }
+        else if (collision.CompareTag("Gas") || (collision.CompareTag("Maria"))) Kill();
     }
-    private void LoadLastscene() { SceneManager.LoadScene(17); }
-    public void NewGas()
-    {
-        gasAmout = 6;
-    }
+    public void NewGas() => gasAmout = 6;
+    private void SpawnGas() => Instantiate(gas, transform.position, transform.rotation);
     private void Born()
     {
         isDead = false;
@@ -164,6 +139,5 @@ public class PlayerController : MonoBehaviour
             transform.localScale = LoaclScale;
         }
     }
-    public int GetGasAmount() { return gasAmout;  }
-    
+    public int GetGasAmount() { return gasAmout; }
 }

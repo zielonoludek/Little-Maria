@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -12,17 +9,9 @@ public class PauseMenu : MonoBehaviour
 
     private void Awake()
     {
-        resumeButton.onClick.AddListener(() =>
-        {
-            UIManager.Instance.TogglePauseMenu();
-        } );
-        
-        mainMenuButton.onClick.AddListener(() =>
-        {
-            SceneManager.LoadScene(0);
-        } );
+        resumeButton.onClick.AddListener(() => UIManager.Instance.TogglePauseMenu());
+        mainMenuButton.onClick.AddListener(() => SceneManager.LoadScene(0));
     }
-    
     private void Start()
     {
         UIManager.OnGamePaused += GamePaused;
@@ -30,30 +19,13 @@ public class PauseMenu : MonoBehaviour
         
         Hide();
     }
-
     private void OnDestroy()
     {
         UIManager.OnGamePaused -= GamePaused;
         UIManager.OnGameUnpaused -= GameUnpaused;
     }
-
-    private void GamePaused()
-    {
-        Show();
-    }
-
-    private void GameUnpaused()
-    {
-        Hide();
-    }
-    
-    private void Show()
-    {
-        gameObject.SetActive(true);   
-    }
-
-    private void Hide()
-    {
-        gameObject.SetActive(false);
-    }
+    private void GamePaused() => Show();
+    private void GameUnpaused() => Hide();
+    private void Show() => gameObject.SetActive(true);   
+    private void Hide() => gameObject.SetActive(false);
 }

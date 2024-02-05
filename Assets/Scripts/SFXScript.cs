@@ -1,37 +1,23 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SFXScript : MonoBehaviour
 {
     private SpriteRenderer renderer;
+    private Animator animator;
 
     public Vector3 current;
-
     private Vector3 Respawn = new Vector3 (-0.58f, 0.37f, 0);
     private Vector3 Death = new Vector3(-0.7f, 0.6f, 0);
     private Vector3 Spray = new Vector3(-0.7f, 0.6f, 0);
 
-
-    private Animator animator;
-
-
-
-    // Start is called before the first frame update
     void Start()
     {
+        animator = GetComponent<Animator>();
         renderer = GetComponent<SpriteRenderer>();
         renderer.sprite = null;
         renderer.enabled = false;
-
-        animator = GetComponent<Animator>();
     }
-
-    private void Update()
-    {
-        current = transform.localPosition;
-    }
-
+    private void Update() => current = transform.localPosition;
     public void PlayRespawnAnim()
     {
         transform.localPosition = Respawn;
@@ -40,8 +26,6 @@ public class SFXScript : MonoBehaviour
 
         animator.SetTrigger("Respawn");
     }
-
-
     public void PlayDieAnim()
     {
         transform.localPosition = Death;
@@ -50,7 +34,6 @@ public class SFXScript : MonoBehaviour
 
         animator.SetTrigger("Death");
     }
-
     public void PlaySprayAnim()
     {
         transform.localPosition = Spray;
@@ -59,8 +42,4 @@ public class SFXScript : MonoBehaviour
 
         animator.SetTrigger("Death");
     }
-
-
-
-
 }
