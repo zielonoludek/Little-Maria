@@ -10,7 +10,7 @@ public class Fan : MonoBehaviour
     {
         Vector3 target = transform.parent.position;
         direction = (transform.position - target).normalized;
-        audioSource.Play();
+        //audioSource.Play();
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
