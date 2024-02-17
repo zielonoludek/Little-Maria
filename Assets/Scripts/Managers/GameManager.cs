@@ -3,14 +3,14 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     private PlayerController player;
-    private int currentRoom = 2;
+    private int currentRoom = 0;
     
     public float maryAppearTimer;
     
     private void Awake()
     {
         player = FindObjectOfType<PlayerController>();
-        SceneManager.LoadScene(currentRoom, LoadSceneMode.Additive);
+        SceneManager.LoadScene("Room0", LoadSceneMode.Additive);
     }
     private void Update()
     {
@@ -28,8 +28,8 @@ public class GameManager : MonoBehaviour
     }
     private void ResetRoom()
     {
-        SceneManager.UnloadScene(currentRoom + 1);
-        SceneManager.LoadScene(currentRoom + 1, LoadSceneMode.Additive);
+        SceneManager.UnloadScene("Room"+currentRoom);
+        SceneManager.LoadScene("Room" + currentRoom, LoadSceneMode.Additive);
     }
     public void AddRoom() {
         currentRoom++;
@@ -38,6 +38,6 @@ public class GameManager : MonoBehaviour
     private void LoadNextRoom()
     {
         maryAppearTimer += 45;
-        SceneManager.LoadScene(currentRoom + 1, LoadSceneMode.Additive);
+        SceneManager.LoadScene("Room" + currentRoom, LoadSceneMode.Additive);
     }
 }

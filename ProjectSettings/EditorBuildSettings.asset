@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: e8c1bdf2740fde3459960173b11d50c1
   - enabled: 1
+    path: Assets/Scenes/CutScenes/start.unity
+    guid: 8d5c7d18f139ec34094566f9548b7fec
+  - enabled: 1
     path: Assets/Scenes/Rooms/main.unity
     guid: 6f76e0315cff8ec48888864289c824a0
   - enabled: 1
@@ -59,7 +62,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CutScenes/end.unity
     guid: 8c43f17aaab915241b9a39131eb1a870
-  - enabled: 1
-    path: Assets/Scenes/CutScenes/start.unity
-    guid: 8d5c7d18f139ec34094566f9548b7fec
   m_configObjects: {}
