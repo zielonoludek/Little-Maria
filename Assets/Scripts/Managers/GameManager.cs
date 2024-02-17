@@ -6,7 +6,10 @@ public class GameManager : MonoBehaviour
     private int currentRoom = 0;
     
     public float maryAppearTimer;
-    
+
+    public Transform lastEntrance;
+
+
     private void Awake()
     {
         player = FindObjectOfType<PlayerController>();
@@ -31,7 +34,9 @@ public class GameManager : MonoBehaviour
         SceneManager.UnloadScene("Room"+currentRoom);
         SceneManager.LoadScene("Room" + currentRoom, LoadSceneMode.Additive);
     }
-    public void AddRoom() {
+    public void AddRoom(Transform entrance) 
+    {
+        lastEntrance = entrance;
         currentRoom++;
         LoadNextRoom();
     }
