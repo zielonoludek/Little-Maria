@@ -11,7 +11,7 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private GameObject creditsPanel;
     private void Awake()
     {
-        playButton.onClick.AddListener(() => SceneManager.LoadScene(18));
+        playButton.onClick.AddListener(() => SceneManager.LoadScene(1));
         creditsButton.onClick.AddListener(() => creditsPanel.SetActive(true));
         backToMainMenuButton.onClick.AddListener(() => creditsPanel.SetActive(false));
 
