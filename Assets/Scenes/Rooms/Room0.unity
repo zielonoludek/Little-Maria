@@ -314,6 +314,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1148577319928346047, guid: 804e6f69ae8ab964db4119c62505710c, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3784375082969764977, guid: 804e6f69ae8ab964db4119c62505710c, type: 3}
       propertyPath: m_Name
       value: Maria
