@@ -1,3 +1,4 @@
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -14,7 +15,7 @@ public class PlayerController : MonoBehaviour
     private Camera camera;
     private float ignoreDuration = 1f;
     private Vector3 spawnPoint;
-    private bool isFacingRight = true;
+    private bool isFacingLeft = true;
     private float timer = 13f;
 
     private Animator animator;
@@ -40,7 +41,7 @@ public class PlayerController : MonoBehaviour
         {
             rb.constraints = RigidbodyConstraints2D.FreezeRotation;
             HandleMovement();
-            Flip();
+            FlipCheck();
             animator.SetFloat("xVelocity", Mathf.Abs(rb.velocity.magnitude));
         }
     }
@@ -62,7 +63,7 @@ public class PlayerController : MonoBehaviour
         {
             timer = 13;
             laughSource.Play();
-        }   
+        }
     }
     private void HandleMovement()
     {
@@ -74,7 +75,7 @@ public class PlayerController : MonoBehaviour
     }
     private void UseGas()
     {
-        if (Input.GetMouseButtonDown(0) )
+        if (Input.GetMouseButtonDown(0))
         {
             Invoke("StopIgnoringCollision", ignoreDuration * 2);
             Invoke("SpawnGas", ignoreDuration);
@@ -93,14 +94,40 @@ public class PlayerController : MonoBehaviour
 
         animator.ResetTrigger("Spray Up");
         animator.ResetTrigger("Spray Down");
-        animator.ResetTrigger("Spray Left");
+        animator.ResetTrigger("Spray Side");
+
+        /*if (Mathf.Abs(direction.y) > Mathf.Abs(direction.x))
+        {
+            if (direction.y > 0) animator.SetTrigger("Spray Up");
+            else animator.SetTrigger("Spray Down");
+        }
+        else animator.SetTrigger("Spray Left");*/
+
 
         if (Mathf.Abs(direction.y) > Mathf.Abs(direction.x))
         {
             if (direction.y > 0) animator.SetTrigger("Spray Up");
             else animator.SetTrigger("Spray Down");
         }
-        else animator.SetTrigger("Spray Left");
+        else //if (!(Mathf.Abs(direction.y) > Mathf.Abs(direction.x)))
+        {
+
+            if (direction.x > 0)
+            {
+                if (isFacingLeft)
+                {
+                    ForceFlip();
+                }
+            }
+            else //if (!(direction.x > 0)) 
+            {
+                if (!isFacingLeft)
+                {
+                    ForceFlip();
+                }
+            }
+            animator.SetTrigger("Spray Side");
+        }
     }
     void StopIgnoringCollision() => shooted = false;
     public void Kill()
@@ -129,15 +156,21 @@ public class PlayerController : MonoBehaviour
         isDead = false;
         transform.position = spawnPoint;
     }
-    private void Flip()
+    private void FlipCheck()
     {
-        if (isFacingRight && movement.x > 0f || !isFacingRight && movement.x < 0f)
+        if (isFacingLeft && movement.x > 0f || !isFacingLeft && movement.x < 0f)
         {
-            isFacingRight = !isFacingRight;
-            Vector3 LoaclScale = transform.localScale;
-            LoaclScale.x *= -1f;
-            transform.localScale = LoaclScale;
+            ForceFlip();
         }
     }
+    private void ForceFlip()
+    {
+        isFacingLeft = !isFacingLeft;
+        print(isFacingLeft);
+        Vector3 LoaclScale = transform.localScale;
+        LoaclScale.x *= -1f;
+        transform.localScale = LoaclScale;
+    }
+
     public int GetGasAmount() { return gasAmout; }
 }
