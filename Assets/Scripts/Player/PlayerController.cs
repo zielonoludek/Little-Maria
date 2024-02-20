@@ -166,7 +166,6 @@ public class PlayerController : MonoBehaviour
     private void ForceFlip()
     {
         isFacingLeft = !isFacingLeft;
-        print(isFacingLeft);
         Vector3 LoaclScale = transform.localScale;
         LoaclScale.x *= -1f;
         transform.localScale = LoaclScale;
