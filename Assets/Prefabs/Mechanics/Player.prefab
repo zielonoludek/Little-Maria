@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 4414011854779065712}
   - component: {fileID: 5932068164658702416}
   - component: {fileID: 977734775704576368}
-  - component: {fileID: 2057454169346416132}
   m_Layer: 0
   m_Name: SFXPlayer
   m_TagString: Untagged
@@ -121,19 +120,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   current: {x: 0, y: 0, z: 0}
---- !u!114 &2057454169346416132
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1847788208058419229}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 657e6025a41428947b4497a77a16d600, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  current: {x: 0, y: 0, z: 0}
 --- !u!1 &5185172569218130716
 GameObject:
   m_ObjectHideFlags: 0
@@ -217,7 +203,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 20
-  m_Sprite: {fileID: 21300000, guid: add3a6b915f28274c8ff4a71b1829bf9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0f25f21abaebf134f8389e56a65ed7d8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -302,15 +288,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0f3aa7f504fc0849a4bc257c8d222ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shooted: 0
   gas: {fileID: 3295342516118524890, guid: c7cdf665b6030db4cbf50fec8475a898, type: 3}
   gasAmout: 0
-  shooted: 0
   paused: 0
+  movement: {x: 0, y: 0}
   spraySource: {fileID: 7374453089280187205}
   stepSource: {fileID: 8328496043707138634}
   deathSource: {fileID: 1911661763763666396}
   laughSource: {fileID: 3810201707809576853}
-  movement: {x: 0, y: 0}
 --- !u!114 &3689300267229780020
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -323,7 +309,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1f2629c93767fb4ea712dadf9bb9b1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: 0
 --- !u!95 &5799952015469119095
 Animator:
   serializedVersion: 5

@@ -2084,16 +2084,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5102400064676255317, guid: f3fbfd849998cf348ba0414da8715a2a, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 0f25f21abaebf134f8389e56a65ed7d8, type: 3}
     - target: {fileID: 5185172569218130716, guid: f3fbfd849998cf348ba0414da8715a2a, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 2057454169346416132, guid: f3fbfd849998cf348ba0414da8715a2a, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -2153,6 +2148,10 @@ PrefabInstance:
     - target: {fileID: 6276362244541430164, guid: cf73c40c6fdf67d499d178a9c786a84b, type: 3}
       propertyPath: m_Layer
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6276362244541430164, guid: cf73c40c6fdf67d499d178a9c786a84b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6935413214936416280, guid: cf73c40c6fdf67d499d178a9c786a84b, type: 3}
       propertyPath: currentRoom

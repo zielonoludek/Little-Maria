@@ -25,7 +25,7 @@ public class MaryController : MonoBehaviour
         {
             maryMoveSpeed = 0;
             playerCatched++;
-            player.Kill();
+            GameManager.Instance.killPlayer(5);
 
             if (playerCatched > 3) SceneManager.LoadScene("end");
         }

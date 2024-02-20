@@ -1,4 +1,3 @@
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -10,6 +9,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private bool paused = false;
     [SerializeField] private Vector2 movement;
 
+
+    private bool lastRoomReached = false;
     private bool isDead = false;
     private float moveSpeed = 5;
     private Camera camera;
@@ -34,6 +35,12 @@ public class PlayerController : MonoBehaviour
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
     }
+
+    private void Start()
+    {
+        GameManager.Instance.lastEntrance = transform.position;
+    }
+
     private void FixedUpdate()
     {
         if (isDead) rb.constraints |= RigidbodyConstraints2D.FreezePosition;
@@ -132,30 +139,32 @@ public class PlayerController : MonoBehaviour
     void StopIgnoringCollision() => shooted = false;
     public void Kill()
     {
-        if (!shooted)
-        {
-            sfx.PlayDieAnim();
-            deathSource.Play();
-            isDead = true;
-            Invoke("Born", 1);
-        }
+        sfx.PlayDieAnim();
+        deathSource.Play();
+        isDead = true;
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Respawn"))
         {
-            spawnPoint = collision.transform.position;
-            Destroy(collision.gameObject);
+            //spawnPoint = collision.transform.position;
+            //Destroy(collision.gameObject);
         }
-        else if (collision.CompareTag("Gas") || (collision.CompareTag("Maria"))) Kill();
+        else if (collision.CompareTag("Gas") || (collision.CompareTag("Maria"))) GameManager.Instance.killPlayer(0);
     }
     public void NewGas() => gasAmout = 6;
     private void SpawnGas() => Instantiate(gas, transform.position, transform.rotation);
-    private void Born()
+    public void RoomRespawn()
+    {
+        isDead = false;
+        transform.position = GameManager.Instance.lastEntrance;
+    }
+    public void GameRespawn()
     {
         isDead = false;
         transform.position = spawnPoint;
     }
+
     private void FlipCheck()
     {
         if (isFacingLeft && movement.x > 0f || !isFacingLeft && movement.x < 0f)
