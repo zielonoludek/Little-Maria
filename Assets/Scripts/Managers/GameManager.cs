@@ -67,13 +67,13 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            SceneManager.UnloadScene("Room" + currentRoom);
+            SceneManager.UnloadSceneAsync("Room" + currentRoom);
             SceneManager.LoadScene("Room" + currentRoom, LoadSceneMode.Additive);
         }
     }
     private void ResetToStart()
     {
-        SceneManager.UnloadScene("Room" + currentRoom);
+        SceneManager.UnloadSceneAsync("Room" + currentRoom);
         currentRoom = 0;
         SceneManager.LoadScene("Room" + currentRoom, LoadSceneMode.Additive);
 
