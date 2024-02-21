@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     private float maryTimerInit;
 
     public bool lastRoomReached { get; set; } = false;
-
+    
     public Vector3 lastEntrance { get; set; }
 
 
@@ -36,6 +36,8 @@ public class GameManager : MonoBehaviour
     }
     public void killPlayer(int value)
     {
+        player.Kill();
+
         switch (value)
         {
             case 0:
@@ -55,14 +57,20 @@ public class GameManager : MonoBehaviour
                 break;
         }
 
-        player.Kill();
+        
     }
     private void ResetRoom()
     {
-        SceneManager.UnloadScene("Room"+currentRoom);
-        SceneManager.LoadScene("Room" + currentRoom, LoadSceneMode.Additive);
+        if (lastRoomReached)
+        {
+            ResetToStart();
+        }
+        else
+        {
+            SceneManager.UnloadScene("Room" + currentRoom);
+            SceneManager.LoadScene("Room" + currentRoom, LoadSceneMode.Additive);
+        }
     }
-
     private void ResetToStart()
     {
         SceneManager.UnloadScene("Room" + currentRoom);
