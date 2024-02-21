@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Vector2 movement;
 
 
-    private bool lastRoomReached = false;
+    
     private bool isDead = false;
     private float moveSpeed = 5;
     private Camera camera;

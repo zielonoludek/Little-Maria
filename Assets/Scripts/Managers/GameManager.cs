@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     public float maryAppearTimer;
     private float maryTimerInit;
 
-
+    public bool lastRoomReached { get; set; } = false;
 
     public Vector3 lastEntrance { get; set; }
 
