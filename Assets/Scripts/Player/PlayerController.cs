@@ -162,7 +162,9 @@ public class PlayerController : MonoBehaviour
             //spawnPoint = collision.transform.position;
             //Destroy(collision.gameObject);
         }
-        else if (collision.CompareTag("Gas") || (collision.CompareTag("Maria"))) GameManager.Instance.killPlayer(0);
+        if (collision.CompareTag("Gas") && !shooted) GameManager.Instance.killPlayer(1);
+
+        if (collision.CompareTag("Maria")) GameManager.Instance.killPlayer(5);
     }
     public void NewGas() => gasAmout = 6;
     private void SpawnGas() => Instantiate(gas, transform.position, transform.rotation);
