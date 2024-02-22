@@ -9,15 +9,20 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private bool paused = false;
     [SerializeField] private Vector2 movement;
 
+    [SerializeField] private int insanityCheckMax = 20;
+    [SerializeField] private float insanityCheckDelay = 25f;
 
-    
+
+
     private bool isDead = false;
     private float moveSpeed = 5;
     private Camera camera;
     private float ignoreDuration = 1f;
     private Vector3 spawnPoint;
     private bool isFacingLeft = true;
-    private float timer = 45f;
+    private float timer;
+    private bool canMove = true;
+
 
     private Animator animator;
     private Rigidbody2D rb;
@@ -38,6 +43,7 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        timer = insanityCheckDelay;
         GameManager.Instance.lastEntrance = transform.position;
     }
 
@@ -47,6 +53,8 @@ public class PlayerController : MonoBehaviour
         else
         {
             rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+
+            if (!canMove) return;
             HandleMovement();
             FlipCheck();
             animator.SetFloat("xVelocity", Mathf.Abs(rb.velocity.magnitude));
@@ -70,13 +78,17 @@ public class PlayerController : MonoBehaviour
     }
     private void LateUpdate()
     {
+        if (GameManager.Instance.deathCounter < 2 && gasAmout > 0) return;
+        
         if (timer > 0)
         {
             timer -= Time.deltaTime;
+            //print(timer);
         }
         else
         {
-            timer = 45;
+            timer = insanityCheckDelay;
+            print("We go insane"); 
             GoingInsane();
         }
     }
@@ -199,14 +211,21 @@ public class PlayerController : MonoBehaviour
 
     private void GoingInsane()
     {
-        int insanityRandomiser = Random.Range(GameManager.Instance.deathCounter,21);
-        if (insanityRandomiser == 20)
+        int insanityRandomiser = Random.Range(GameManager.Instance.deathCounter, insanityCheckMax+1);
+        if (insanityRandomiser >= insanityCheckMax)
         {
+            print("Sanity check filed");
+            canMove = false;
             laughSource.Play();
             animator.SetTrigger("Laught");
+            Invoke("AllowMovemnt", 1.1f);
+
         }
         else print("Sanity check passed "+ insanityRandomiser);
     }
 
-
+    void AllowMovemnt()
+    {
+        canMove = true;
+    }
 }

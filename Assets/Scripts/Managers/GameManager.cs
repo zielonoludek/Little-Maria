@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.K)) killPlayer(0);
+        if (Input.GetKeyDown(KeyCode.K)) killPlayer(1);
         if (Input.GetKeyDown(KeyCode.L)) killPlayer(5);
         if (Input.GetKeyDown(KeyCode.R)) ResetRoom();
         if (Input.GetKeyDown(KeyCode.Escape)) UIManager.Instance.TogglePauseMenu();
@@ -38,6 +38,7 @@ public class GameManager : MonoBehaviour
     public void killPlayer(int value)
     {
         deathCounter += value;
+        print("Death Counter:" + deathCounter);
         player.Kill();
 
         switch (value)

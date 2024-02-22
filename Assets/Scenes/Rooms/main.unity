@@ -2233,6 +2233,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4794054879790908128, guid: f3fbfd849998cf348ba0414da8715a2a, type: 3}
+      propertyPath: insanityCheckMax
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4794054879790908128, guid: f3fbfd849998cf348ba0414da8715a2a, type: 3}
+      propertyPath: insanityCheckDelay
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 5185172569218130716, guid: f3fbfd849998cf348ba0414da8715a2a, type: 3}
       propertyPath: m_Name
       value: Player
