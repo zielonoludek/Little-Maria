@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
     private float ignoreDuration = 1f;
     private Vector3 spawnPoint;
     private bool isFacingLeft = true;
-    private float timer = 13f;
+    private float timer = 45f;
 
     private Animator animator;
     private Rigidbody2D rb;
@@ -55,6 +55,8 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         if (!isDead && gasAmout > 0) UseGas();
+
+
         if (movement == Vector2.zero)
         {
             stepSource.Pause();
@@ -65,13 +67,20 @@ public class PlayerController : MonoBehaviour
             paused = false;
             stepSource.Play();
         }
-        if (timer > 0) timer -= Time.deltaTime;
+    }
+    private void LateUpdate()
+    {
+        if (timer > 0)
+        {
+            timer -= Time.deltaTime;
+        }
         else
         {
-            timer = 13;
-            laughSource.Play();
+            timer = 45;
+            GoingInsane();
         }
     }
+
     private void HandleMovement()
     {
         if (gasAmout > 0) animator.SetBool("HasGas", true);
@@ -99,9 +108,12 @@ public class PlayerController : MonoBehaviour
         Vector3 target = camera.ScreenToWorldPoint(Input.mousePosition);
         Vector3 direction = (target - transform.position).normalized;
 
+/*
         animator.ResetTrigger("Spray Up");
         animator.ResetTrigger("Spray Down");
         animator.ResetTrigger("Spray Side");
+*/
+
 
         /*if (Mathf.Abs(direction.y) > Mathf.Abs(direction.x))
         {
@@ -181,4 +193,18 @@ public class PlayerController : MonoBehaviour
     }
 
     public int GetGasAmount() { return gasAmout; }
+
+
+    private void GoingInsane()
+    {
+        int insanityRandomiser = Random.Range(GameManager.Instance.deathCounter,21);
+        if (insanityRandomiser == 20)
+        {
+            laughSource.Play();
+            animator.SetTrigger("Laught");
+        }
+        else print("Sanity check passed "+ insanityRandomiser);
+    }
+
+
 }

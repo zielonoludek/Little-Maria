@@ -17,7 +17,7 @@ public class MaryController : MonoBehaviour
     }
     private void Update()
     { 
-        if (gameManager.maryAppearTimer <= 0) GoTowardsPlayer();
+        if (GameManager.Instance.maryAppearTimer <= 0) GoTowardsPlayer();
     }
     private void OnCollisionEnter2D(Collision2D other)
     {

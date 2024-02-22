@@ -7,11 +7,12 @@ public class GameManager : MonoBehaviour
     private PlayerController player;
     private int currentRoom = 0;
     
-    public float maryAppearTimer;
+    [SerializeField] public float maryAppearTimer;
+    [SerializeField] private int deathThreshold = 9; 
     private float maryTimerInit;
 
     public bool lastRoomReached { get; set; } = false;
-    
+    public int deathCounter { get; set; } = 0;
     public Vector3 lastEntrance { get; set; }
 
 
@@ -36,6 +37,7 @@ public class GameManager : MonoBehaviour
     }
     public void killPlayer(int value)
     {
+        deathCounter += value;
         player.Kill();
 
         switch (value)
