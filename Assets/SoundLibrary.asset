@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4c70f91f2006a1438b1bc57754ffea6, type: 3}
+  m_Name: SoundLibrary
+  m_EditorClassIdentifier: 
+  laughClips:
+  - {fileID: 8300000, guid: 68326e75285a584408fe86c39b6ccf27, type: 3}
+  - {fileID: 8300000, guid: 02d8a1e799415f9489e80bd7dfc8a414, type: 3}
+  - {fileID: 8300000, guid: 05bb35b96b29857468f0fb28400fedb8, type: 3}
+  - {fileID: 8300000, guid: ea491a63f3465af4dbedf9ebdfdef44e, type: 3}
+  - {fileID: 8300000, guid: f91ba43ab6fcdce43bee66a27416b51e, type: 3}
+  - {fileID: 8300000, guid: 37f5220ca85acef4fa07ba677297eb2b, type: 3}
+  - {fileID: 8300000, guid: 1a2a834ad3f480e4cbf0230661a2d97f, type: 3}
+  - {fileID: 8300000, guid: ade7ae2ea3d21ed4181cc41d35e01811, type: 3}
+  - {fileID: 8300000, guid: 0bcd730a67f880d44a22eef5fe6ece4c, type: 3}
+  screamClips:
+  - {fileID: 8300000, guid: 4160eedb0fbcde740a29111a1607d9e7, type: 3}
+  - {fileID: 8300000, guid: b301a651671c3914cbf6c10b35f2d7e1, type: 3}
+  - {fileID: 8300000, guid: d574a0d80df6e294d9ec60d5eba88ffa, type: 3}
+  - {fileID: 8300000, guid: 23af4c73af089a24ca9cfa651d0927f2, type: 3}
+  musicClips:
+  - {fileID: 8300000, guid: 5890c257086f54341b23bb44e6a76d8d, type: 3}
+  - {fileID: 8300000, guid: c397c53700b89674e8dfc8f5611b2b39, type: 3}
+  - {fileID: 8300000, guid: 26c45ff59ae89de499f9888a0114b4b2, type: 3}
+  - {fileID: 8300000, guid: e2f079f7c44306b43994059243eecfa0, type: 3}
+  - {fileID: 8300000, guid: b14a820e8b0b03c44a276ede425ddf70, type: 3}
+  - {fileID: 8300000, guid: 7323cecbd325bef42b6e50de67854f59, type: 3}
+  - {fileID: 8300000, guid: 6eb1a99d488b5024aa414657af7e2066, type: 3}
+  - {fileID: 8300000, guid: 626ad743a5ee5604986ce400eb16aa92, type: 3}

@@ -78,18 +78,19 @@ public class PlayerController : MonoBehaviour
     }
     private void LateUpdate()
     {
-        if (GameManager.Instance.deathCounter < 2 && gasAmout > 0) return;
-        
-        if (timer > 0)
+        if (GameManager.Instance.deathCounter > 1 && gasAmout > 0)
         {
-            timer -= Time.deltaTime;
-            //print(timer);
-        }
-        else
-        {
-            timer = insanityCheckDelay;
-            print("We go insane"); 
-            GoingInsane();
+            if (timer > 0)
+            {
+                timer -= Time.deltaTime;
+                //print(timer);
+            }
+            else
+            {
+                timer = insanityCheckDelay;
+                print("We go insane");
+                GoingInsane();
+            }
         }
     }
 
