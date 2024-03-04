@@ -11,10 +11,18 @@ public class SoundLibrary : ScriptableObject
     {
         return laughClips;
     }
+    public AudioClip RandomLaughClip() 
+    {
+        return laughClips[Random.Range(0, laughClips.Length)];
+    }
 
     public AudioClip[] GetScreamClips()
     {
         return screamClips;
+    }
+    public AudioClip RandomScreamClip()
+    {
+        return screamClips[Random.Range(0, screamClips.Length)];
     }
 
     public AudioClip[] GetMusicClips()

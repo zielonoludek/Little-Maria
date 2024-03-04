@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private int insanityCheckMax = 20;
     [SerializeField] private float insanityCheckDelay = 25f;
 
+    [SerializeField] private SoundLibrary soundLibrary;
 
 
     private bool isDead = false;
@@ -165,6 +166,8 @@ public class PlayerController : MonoBehaviour
     public void Kill()
     {
         sfx.PlayDieAnim();
+        AudioClip newClip = soundLibrary.RandomScreamClip();
+        deathSource.clip = newClip;
         deathSource.Play();
         isDead = true;
     }
@@ -217,9 +220,13 @@ public class PlayerController : MonoBehaviour
         {
             print("Sanity check filed");
             canMove = false;
+            rb.constraints = RigidbodyConstraints2D.FreezePosition;
+            AudioClip newClip = soundLibrary.RandomLaughClip();
+            laughSource.clip = newClip;
             laughSource.Play();
+
             animator.SetTrigger("Laught");
-            Invoke("AllowMovemnt", 1.1f);
+            Invoke("AllowMovemnt", newClip.length);
 
         }
         else print("Sanity check passed "+ insanityRandomiser);
@@ -227,6 +234,7 @@ public class PlayerController : MonoBehaviour
 
     void AllowMovemnt()
     {
+        rb.constraints = RigidbodyConstraints2D.FreezeRotation;
         canMove = true;
     }
 }

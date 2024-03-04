@@ -418,6 +418,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a57b51d2e7e00da4185f518883637d2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundLibrary: {fileID: 11400000, guid: e51e4c569ea996948a624123c74dadee, type: 2}
 --- !u!4 &362395917
 Transform:
   m_ObjectHideFlags: 0
@@ -2465,11 +2466,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2434351072821732563, guid: f3fbfd849998cf348ba0414da8715a2a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.04
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 2434351072821732563, guid: f3fbfd849998cf348ba0414da8715a2a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.96
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 2434351072821732563, guid: f3fbfd849998cf348ba0414da8715a2a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2502,14 +2503,6 @@ PrefabInstance:
     - target: {fileID: 2434351072821732563, guid: f3fbfd849998cf348ba0414da8715a2a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4794054879790908128, guid: f3fbfd849998cf348ba0414da8715a2a, type: 3}
-      propertyPath: insanityCheckMax
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 4794054879790908128, guid: f3fbfd849998cf348ba0414da8715a2a, type: 3}
-      propertyPath: insanityCheckDelay
-      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5185172569218130716, guid: f3fbfd849998cf348ba0414da8715a2a, type: 3}
       propertyPath: m_Name

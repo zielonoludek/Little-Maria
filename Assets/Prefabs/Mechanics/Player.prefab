@@ -293,6 +293,9 @@ MonoBehaviour:
   gasAmout: 0
   paused: 0
   movement: {x: 0, y: 0}
+  insanityCheckMax: 4
+  insanityCheckDelay: 4
+  soundLibrary: {fileID: 11400000, guid: e51e4c569ea996948a624123c74dadee, type: 2}
   spraySource: {fileID: 7374453089280187205}
   stepSource: {fileID: 8328496043707138634}
   deathSource: {fileID: 1911661763763666396}
@@ -532,7 +535,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: d574a0d80df6e294d9ec60d5eba88ffa, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 23af4c73af089a24ca9cfa651d0927f2, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -628,7 +631,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: e25a6552821071a44befdf358f958e01, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 68326e75285a584408fe86c39b6ccf27, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
