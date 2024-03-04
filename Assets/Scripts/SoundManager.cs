@@ -10,7 +10,7 @@ public class SoundManager : MonoBehaviour
 
     private void Awake()
     {
-        
+        musicPlayer = GetComponentInChildren<AudioSource>();
     }
 
     // Start is called before the first frame update
